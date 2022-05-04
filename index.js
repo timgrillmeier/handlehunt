@@ -92,7 +92,10 @@ function searchUsernames(searchTerm) {
 					
 					if (data.contents.includes(platforms[i][3])) {
 						$('#results-list-usernames').append(
-							'<strong>' + platforms[i][1] + '</strong> available - <a href="' + platforms[i][2] + searchTerm + '" target="_blank">@' + searchTerm + '</a><br>'
+							'<a class="availability username" href="' + platforms[i][2] + searchTerm + '" target="_blank">' + 
+							'<div class="icon"><img src="/icons/' + platforms[i][1].toLowerCase() + '.svg"</div>' +
+							'<strong>' + platforms[i][1] + '</strong> <a href="' + platforms[i][2] + searchTerm + '" target="_blank">@' + searchTerm + '</a><br>' +
+							'</a>'
 						);
 					}
 
