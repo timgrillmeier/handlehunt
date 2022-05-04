@@ -23,8 +23,8 @@ let platforms = [
 	['404','tiktok','TikTok', 'https://www.tiktok.com/@'],
 	['404','youtube','YouTube', 'https://www.youtube.com/user/'],
 	['404','pinterest','Pinterest', 'https://www.pinterest.com.au/'],
-	['200','reddit','Reddit u/', 'https://www.reddit.com/user/', 'Sorry, nobody on Reddit goes by that name.'],
-	['200','reddit','Reddit r/', 'https://www.reddit.com/r/',  'Sorry, there aren’t any communities on Reddit with that name.'],
+	//['200','reddit','Reddit u/', 'https://www.reddit.com/user/', 'Sorry, nobody on Reddit goes by that name.'],
+	//['200','reddit','Reddit r/', 'https://www.reddit.com/r/',  'Sorry, there aren’t any communities on Reddit with that name.'],
 	['404','quora','Quora', 'https://www.quora.com/profile/'],
 	['404','dribbble','Dribbble', 'https://dribbble.com/'],
 ];
@@ -106,7 +106,8 @@ function searchDomains(searchTerm) {
 			}
 		})
 		.fail(function(){
-			
+			$('#statusDomain'+i).addClass('unavailable');
+			$('#statusDomain'+i).html(getSVGCode('close'));
 		});
 	}
 }
@@ -135,11 +136,11 @@ function searchUsernames(searchTerm) {
 
 
 
-				if ((platforms[i][2] == "Reddit u/" || platforms[i][2] == "Reddit r/") && data.contents.includes(platforms[i][4])) {
+				if ((platforms[i][1] == "reddit") && data.contents.includes(platforms[i][4])) {
 					
 					match = true;
 
-				} else if ((platforms[i][2] == "Twitter") && !data.contents.includes(platforms[i][4])) {
+				} else if ((platforms[i][1] == "twitter") && !data.contents.includes(platforms[i][4])) {
 
 					match = true;
 
