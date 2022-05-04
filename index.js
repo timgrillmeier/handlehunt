@@ -12,12 +12,12 @@ let domains = [
 	'agency',
 	'media',
 	'studio',
-	'services',
+	//'services',
 ];
 
 let platforms = [
 	['404','twitter','Twitter', 'https://twitter.com/', 'Account suspended'],
-	['404','instagram','Instagram', 'https://www.instagram.com/'],
+	//['404','instagram','Instagram', 'https://www.instagram.com/'],
 	['404','facebook','Facebook', 'https://www.facebook.com/'],
 	// ['999','linkedin','LinkedIn', 'https://www.linkedin.com/company/'],
 	['404','tiktok','TikTok', 'https://www.tiktok.com/@'],
@@ -97,12 +97,17 @@ function searchDomains(searchTerm) {
 			
 			$('#statusDomain'+i).removeClass('loading');
 
-			if (data.status.error.code == 'ENOTFOUND') {
-				$('#statusDomain'+i).addClass('available');
-				$('#statusDomain'+i).html(getSVGCode('check'));
-			} else {
+			if (typeof data.status.error == 'undefined' || typeof data.status.error == null) {
 				$('#statusDomain'+i).addClass('unavailable');
 				$('#statusDomain'+i).html(getSVGCode('close'));
+			} else {
+				if (data.status.error.code == 'ENOTFOUND') {
+					$('#statusDomain'+i).addClass('available');
+					$('#statusDomain'+i).html(getSVGCode('check'));
+				} else {
+					$('#statusDomain'+i).addClass('unavailable');
+					$('#statusDomain'+i).html(getSVGCode('close'));
+				}
 			}
 		})
 		.fail(function(){
