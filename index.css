@@ -105,3 +105,87 @@ footer .container-content {
 	padding-left: 20px;
 }
 
+.availability {
+	border-radius: 6px;
+	border:  2px solid #181818;
+	overflow: hidden;
+	text-decoration: none;
+	height: 40px;
+	position:  relative;
+	padding:  0 40px 0 40px;
+	display:  block;
+	margin-bottom: 10px;
+}
+
+.availability.domain {
+	
+}
+
+.availability.username {
+
+}
+
+.availability.username .icon {
+	background: #3E67F8;
+	width: 40px;
+	position:  absolute;
+	left: 0;
+	top: 0;
+}
+
+.availability.username .icon svg {
+	width: 20px;
+	height:  20px;
+	padding: 10px;
+	fill: white;
+	color: white;
+}
+
+.availability.username .username {
+	line-height:  20px;
+	color:  #181818;
+	font-size: 18px;
+	padding: 10px 0 10px 15px;
+}
+
+.availability.username .status {
+	background: white;
+	width: 40px;
+	position:  absolute;
+	right: 0;
+	top: 0;
+}
+
+.availability.username .status svg {
+	width: 24px;
+	height:  24px;
+	padding: 8px;
+	
+}
+
+.availability.username .status.loading svg {
+	animation: rotation 2s infinite linear;
+	fill: #181818;
+	color: #181818;
+}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
+
+.availability.username .status.available svg {
+	fill: #6acd3f;
+	color: #6acd3f;
+}
+
+.availability.username .status.unavailable svg {
+	fill: #e80e09;
+	color: #e80e09;
+}
+
+
