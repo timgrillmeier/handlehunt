@@ -37,6 +37,19 @@ footer .container-content {
 	margin:  0 auto;
 }
 
+.disclaimer {
+	font-size: 14px;
+	pointer-events: none;
+	line-height: 18px;
+	color: grey;
+}
+
+@media screen and (max-width: 550px) {
+	.container-content {
+		padding:  20px 20px;
+	}
+}
+
 #search,
 .container-search {
 	width:  100%;
@@ -78,6 +91,25 @@ footer .container-content {
 	transition: opacity 250ms;
 }
 
+@media screen and (max-width: 550px) {
+	.container-search {
+		width:  100%;
+	}
+
+	.container-search input[type="text"] {
+		font-size: 18px;
+		width:  calc(100% - 100px);
+		padding: 10px 15px;
+	}
+
+	.container-search button[type="submit"] {
+		padding: 10px 10px 9px;
+		font-size: 16px;
+		width: 100px;
+		top: -0px;
+	}
+}
+
 .container-search button[type="submit"]:hover {
 	opacity:  0.8;
 }
@@ -105,6 +137,19 @@ footer .container-content {
 	padding-left: 20px;
 }
 
+@media screen and (max-width: 730px) {
+	.container-results-lists .col {
+		float:  none;
+		width:  100%;
+	}
+
+	.container-results-lists .col.col-1,
+	.container-results-lists .col.col-2 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
 .availability {
 	border-radius: 6px;
 	border:  2px solid #181818;
@@ -118,19 +163,37 @@ footer .container-content {
 }
 
 .availability.domain {
-	
+	padding-left: 75px;
 }
 
 .availability.username {
 
 }
 
+.availability.domain .icon,
 .availability.username .icon {
 	background: #3E67F8;
 	width: 40px;
 	position:  absolute;
 	left: 0;
 	top: 0;
+}
+
+.availability.domain .icon {
+	background: #181818;
+	width:  75px;
+	height: 40px;
+}
+
+.availability.domain .icon span {
+	font-size: 16px;
+	line-height: 20px;
+	color:  white;
+	width: 65px;
+	height:  20px;
+	padding: 10px 5px;
+	text-align: center;
+	display: inline-block;
 }
 
 .availability.username .icon svg {
@@ -141,6 +204,7 @@ footer .container-content {
 	color: white;
 }
 
+.availability.domain .domain,
 .availability.username .username {
 	line-height:  20px;
 	color:  #181818;
@@ -148,6 +212,7 @@ footer .container-content {
 	padding: 10px 0 10px 15px;
 }
 
+.availability.domain .status,
 .availability.username .status {
 	background: white;
 	width: 40px;
@@ -156,13 +221,14 @@ footer .container-content {
 	top: 0;
 }
 
+.availability.domain .status svg,
 .availability.username .status svg {
 	width: 24px;
 	height:  24px;
 	padding: 8px;
-	
 }
 
+.availability.domain .status.loading svg,
 .availability.username .status.loading svg {
 	animation: rotation 2s infinite linear;
 	fill: #181818;
@@ -178,11 +244,13 @@ footer .container-content {
 	}
 }
 
+.availability.domain .status.available svg,
 .availability.username .status.available svg {
 	fill: #6acd3f;
 	color: #6acd3f;
 }
 
+.availability.domain .status.unavailable svg,
 .availability.username .status.unavailable svg {
 	fill: #e80e09;
 	color: #e80e09;

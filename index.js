@@ -73,6 +73,9 @@ function init() {
 		$('#searchterms').val(val);
 
 		if (typeof val != 'undefined' && val != '') {
+			$('.col-heading').each(function(){
+				this.style.display = 'block';
+			})
 			searchDomains(val);
 			searchUsernames(val);
 		}
@@ -81,13 +84,25 @@ function init() {
 
 function searchDomains(searchTerm) {
 	for (let i = 0; i < domains.length; i++) {
-		// console.log('searching for https://' + searchTerm + '.' + domains[i] + ' ...');
+		
+		$('#results-list-domains').append(
+			'<a class="availability domain" href="https://' + searchTerm + '.' + domains[i] + '" target="_blank">' + 
+			'<div class="icon"><span>.' + domains[i] + '</span></div>' +
+			'<div class="domain">' + searchTerm + '.' + domains[i] + '</div>' +
+			'<div id="statusDomain' + i + '" class="status loading">' + getSVGCode('loader') + '</div>' +
+			'</a>'
+		);
+
 		$.get('https://api.allorigins.win/get?url=' + encodeURIComponent('https://' + searchTerm + '.' + domains[i]), function(data) {
-			//console.log(data);
+			
+			$('#statusDomain'+i).removeClass('loading');
+
 			if (data.status.error.code == 'ENOTFOUND') {
-				$('#results-list-domains').append(
-					'<strong>.' + domains[i] + '</strong> available - <a href="https://' + searchTerm + '.' + domains[i] + '" target="_blank">' + searchTerm + '.' + domains[i] + '</a><br>'
-				);
+				$('#statusDomain'+i).addClass('available');
+				$('#statusDomain'+i).html(getSVGCode('check'));
+			} else {
+				$('#statusDomain'+i).addClass('unavailable');
+				$('#statusDomain'+i).html(getSVGCode('close'));
 			}
 		})
 		.fail(function(){
