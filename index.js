@@ -1,32 +1,46 @@
+function searchName(event, banner = false) {
+	event.preventDefault();
+
+	console.log(event)
+	console.log(banner)
+}
+
+
+
+
+
+//  ----------------------
+
+
 let domains = [
 	'com',
 	'net',
 	'org',
 	'co',
 	'io',
-	// 'me',
 	'ai',
 	'app',
+	// 'me',
 	// 'tech',
 	// 'health',
 	// 'agency',
 	// 'media',
 	// 'studio',
-	//'services',
+	// 'services',
 ];
 
 let platforms = [
 	['404','twitter','Twitter', 'https://twitter.com/', 'Account suspended'],
-	//['404','instagram','Instagram', 'https://www.instagram.com/'],
 	['404','facebook','Facebook', 'https://www.facebook.com/'],
-	// ['999','linkedin','LinkedIn', 'https://www.linkedin.com/company/'],
 	['404','tiktok','TikTok', 'https://www.tiktok.com/@'],
 	['404','youtube','YouTube', 'https://www.youtube.com/user/'],
 	['404','pinterest','Pinterest', 'https://www.pinterest.com.au/'],
-	//['200','reddit','Reddit u/', 'https://www.reddit.com/user/', 'Sorry, nobody on Reddit goes by that name.'],
-	//['200','reddit','Reddit r/', 'https://www.reddit.com/r/',  'Sorry, there aren’t any communities on Reddit with that name.'],
 	['404','quora','Quora', 'https://www.quora.com/profile/'],
 	['404','dribbble','Dribbble', 'https://dribbble.com/'],
+	// ['404','instagram','Instagram', 'https://www.instagram.com/'],
+	// ['999','linkedin','LinkedIn', 'https://www.linkedin.com/company/'],
+	// ['200','reddit','Reddit u/', 'https://www.reddit.com/user/', 'Sorry, nobody on Reddit goes by that name.'],
+	// ['200','reddit','Reddit r/', 'https://www.reddit.com/r/',  'Sorry, there aren’t any communities on Reddit with that name.'],
 ];
 
 let svgs = [
@@ -93,6 +107,10 @@ function searchDomains(searchTerm) {
 			'</a>'
 		);
 
+		$.get('https://api.domaintools.com/v1/' + encodeURIComponent('https://' + searchTerm + '.' + domains[i]) + '/whois/', function(data) {
+			console.log(data);
+		});
+
 		$.get('https://api.allorigins.win/get?url=' + encodeURIComponent('https://' + searchTerm + '.' + domains[i]), function(data) {
 			
 			$('#statusDomain'+i).removeClass('loading');
@@ -129,6 +147,8 @@ function searchUsernames(searchTerm) {
 			'</a>'
 		);
 
+
+
 		$.get('https://api.allorigins.win/get?url=' + encodeURIComponent(platforms[i][3] + searchTerm), function(data) {
 			
 			$('#statusUsername'+i).removeClass('loading');
@@ -155,6 +175,8 @@ function searchUsernames(searchTerm) {
 
 				}
 			}
+
+
 
 			
 
