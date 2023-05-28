@@ -1,9 +1,10 @@
 body {
-	font-family: 'Archivo', sans-serif;
+	font-family: 'Inter', sans-serif;
 	font-size: 16px;
 	font-weight: 500;
 	margin: 0;
-	color: #181818;
+	color: #000000;
+	letter-spacing: -1.5%;
 }
 
 h1, h2, h3, h4, h5 {
@@ -11,16 +12,140 @@ h1, h2, h3, h4, h5 {
 }
 
 a {
-	color: #3E67F8;
+	color: #FD4219;
 }
+
+
+.container-content {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px;
+	box-sizing: border-box;
+}
+
 
 header {
-	text-align: center;
+	
 }
 
+header .logo {
+	
+}
+
+header .logo a {
+	
+}
+
+header .logo a img {
+	height: 40px;
+	padding: 20px 0;
+}
+
+.container-banner {
+
+}
+
+.container-banner .container-columns {
+	display: flex;
+/*	flex-wrap: wrap;*/
+	gap: 50px;
+	flex-direction: row;
+	height: 700px;
+}
+
+.container-banner .container-columns .column {
+	width: 50%;
+	box-sizing: border-box;
+	margin: auto 0;
+}
+
+.container-title {
+	position: relative;
+}
+
+.container-title h1 {
+	font-size: 60px;
+	font-weight: 500;
+	color: #000;
+	line-height: 0.9;
+	letter-spacing: -5%;
+}
+.container-title h1 span {
+	position: relative;
+}
+
+.container-title h1 span:before {
+	content: '';
+	background-color: #19D4FD;
+	width: calc(100% + 12px);
+	left: -6px;
+	bottom: 6px;
+	height: 32px;
+	display: block;
+	position: absolute;
+	z-index: -1;
+}
+
+.container-title .sprite-wrap {
+	
+}
+
+
+.container-banner .container-columns .column.right p {
+	max-width: 415px;
+}
+
+
+.container-search-form {
+	display: flex;
+	gap: 25px;
+}
+
+.container-search-form .container-text-field {
+	flex-grow: 1
+}
+
+.container-search-form input[type="text"] {
+	width: 100%;
+	display: block;
+	border: 2px solid #D9D9D9;
+	border-radius: 4px;
+	height: 44px;
+	box-sizing: border-box;
+	padding: 0 11px;
+	font-size: 18px;
+	color: #000;
+	letter-spacing: 0;
+	font-weight: 500;
+	text-transform: lowercase;
+}
+
+.container-search-form .container-submit-button {
+	
+}
+
+.container-search-form input[type="submit"] {
+	border: none;
+	background: #FD4219;
+	background-color: #FD4219;
+	font-size: 18px;
+	font-weight: 500;
+	height: 44px;
+	cursor: pointer;
+	color: white;
+	border-radius: 4px;
+	padding: 0 40px;
+	transition: opacity 300ms;
+}
+
+.container-search-form input[type="submit"]:hover {
+	opacity: 0.8;
+}
+
+
 footer {
-	text-align: center;
-	/*background: #f8f8f8;*/
+	
 }
 
 footer .container-content {
@@ -29,12 +154,6 @@ footer .container-content {
 
 .container-body {
 	min-height: calc(100vh - 137px - 118px);
-}
-
-.container-content {
-	padding:  30px 60px;
-	max-width: 920px;
-	margin:  0 auto;
 }
 
 .disclaimer {
